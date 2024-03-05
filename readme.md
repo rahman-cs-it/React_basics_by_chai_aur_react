@@ -1,1 +1,0 @@
-#React using chai with react
