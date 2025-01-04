@@ -5,37 +5,44 @@ import './App.css'
 
 function App() {
 
-  let [counter, setCounter] = useState(15);
+  let [counter, setCounter] = useState(20);
 
 
   // let counter = 15;
-
-  let addValue = () => {
-
-    setCounter(prevcounter=>prevcounter+1)
-    setCounter(prevcounter=>prevcounter+1)
-    setCounter(prevcounter=>prevcounter+1)
-
-    if (counter > 20) {
+  const addValue= () => {
+    // console.log("Add Before",counter);
+    counter = counter + 1;
+    setCounter(counter);
+    // console.log("Add After",counter);
+    if(counter >= 21 ){
       setCounter(0);
     }
-
   }
 
-  let removeValue = () => {
-    setCounter(--counter)
-    if (counter < 0) {
-      setCounter(0);
-    }
-
+  const subValue= () => {
+    // console.log("Sub Before",counter)
+    counter = counter - 1;
+    setCounter(counter);
+    // console.log("Sub After",counter)
+  if(counter <= 0){
+    setCounter(0);
   }
+  }
+
+  
+
+  
   return (
     <>
-      <h1>Lets learn to code {counter} </h1>
-      <h2>counter value {counter} </h2>
-      <button onClick={addValue} >add value {counter} </button>
+      <h1>Chai aur react</h1>
+      <div>Counter Value : {counter}</div>
       <br />
-      <button onClick={removeValue} >remove value {counter} </button>
+      <button onClick={addValue}>Add Value {counter}</button>
+      <br />
+      <br />
+      <button onClick={subValue}>Subtract Value {counter}</button>
+
+
     </>
   )
 }
